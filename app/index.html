@@ -3,23 +3,67 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GTA VI trophy checklist</title>
+<title>Leonida Legends — GTA 6 Trophy Guide &amp; Tracker</title>
+<meta name="description" content="An offline guide and checklist for all 55 Grand Theft Auto VI trophies on PlayStation 5, with a five-stage roadmap to the platinum.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <h1>GTA VI trophy checklist</h1>
-  <p id="progress">0 of 55 earned</p>
-</header>
-<div class="controls">
-  <label>Grade <select id="grade"><option value="all">All</option><option value="platinum">Platinum</option><option value="gold">Gold</option><option value="silver">Silver</option><option value="bronze">Bronze</option></select></label>
-  <button id="export" type="button">Export progress</button>
-  <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
+<div class="sticky-progress" aria-label="Trophy progress">
+  <span class="sticky-title">Leonida Legends</span>
+  <span class="sticky-bar"><span id="sticky-fill"></span></span>
+  <span class="sticky-text" id="sticky-text">0 of 55 earned</span>
 </div>
-<table>
-  <thead><tr><th>Earned</th><th>Trophy</th><th>Grade</th><th>How to get it</th></tr></thead>
-  <tbody id="rows"></tbody>
-</table>
+<header class="masthead">
+  <p class="eyebrow">Grand Theft Auto VI &middot; PlayStation 5 &middot; Leonida</p>
+  <h1>Leonida Legends</h1>
+  <p class="subtitle">The complete trophy guide &amp; tracker — 55 trophies, 1 platinum, 2 gold, 6 silver, 46 bronze. No online trophies; every one is single-player.</p>
+  <p class="honesty"><strong>An honest note.</strong> GTA 6 released on 19 November 2026, so this guide is built from the published official trophy list (PlayStation, via Exophase and PSNProfiles) and the cited guides beside each trophy. Where a detail is not yet confirmed by those sources, the guide says so instead of guessing — look for “not yet confirmed”.</p>
+  <div class="progress-wrap" aria-label="Trophy progress">
+    <div class="progress-line"><span id="progress-text">0 of 55 earned</span><span id="progress-pct">0%</span></div>
+    <div class="progress-bar"><div id="progress-fill"></div></div>
+    <p class="progress-counts" id="progress-counts">Platinum 0/1 &middot; Gold 0/2 &middot; Silver 0/6 &middot; Bronze 0/46</p>
+  </div>
+</header>
+
+<main>
+<section id="roadmap" class="roadmap" aria-label="Roadmap to the platinum">
+  <h2>Roadmap to the platinum <span class="roadmap-time">≈ 200–300 hours</span></h2>
+  <p class="roadmap-intro">Five stages, in order. Finish the story first, then the stranger missions, then the activities, then the collectibles — and clean up the 100% checklist last.</p>
+  <ol class="stages">
+    <li data-stage="1"><h3>Stage 1 — Story first</h3><p>Chapters 1–4 and the final mission. The 12 story trophies unlock automatically as you play; nothing here can be missed. <strong>Before you leave Chapter 1, read Positive Mental Attitude</strong> — the one trophy that might be missable — and keep a manual save.</p><p class="stage-count" data-stage-count="1"></p></li>
+    <li data-stage="2"><h3>Stage 2 — Strangers of Leonida</h3><p>The stranger mission strands: Andy, Kenton, Billy, Randy, Tyrone, Bret and the rest — eight strands in all, each ending in its own trophy, plus the silver for finishing all eight.</p><p class="stage-count" data-stage-count="2"></p></li>
+    <li data-stage="3"><h3>Stage 3 — Activities</h3><p>Races, the shooting range (42 gold medals), 250 stunts, Top Fun drone races at all 14 locations, fishing, the arcade, meditation spots and bowling. The longest grind lives here.</p><p class="stage-count" data-stage-count="3"></p></li>
+    <li data-stage="4"><h3>Stage 4 — Collectibles &amp; the world</h3><p>100 vehicles discovered, 100 WAiNK locations, 3 card sets, every corner of Leonida explored, bank vaults, armored trucks and the money goals — $250,000 laundered, $100,000 spent, every garage bought.</p><p class="stage-count" data-stage-count="4"></p></li>
+    <li data-stage="5"><h3>Stage 5 — Cleanup &amp; platinum</h3><p>The 100% Completion checklist (35 tasks, under Progress after the story) and the gold for finishing it — then the platinum, Vice Got a Price!, pops on its own.</p><p class="stage-count" data-stage-count="5"></p></li>
+  </ol>
+</section>
+
+<section class="controls" aria-label="Filters and settings">
+  <label class="search-label">Search <input id="search" type="search" placeholder="Trophy name, mission, keyword…" autocomplete="off"></label>
+  <label>Grade <select id="grade"><option value="all">All grades</option><option value="platinum">Platinum</option><option value="gold">Gold</option><option value="silver">Silver</option><option value="bronze">Bronze</option></select></label>
+  <label>Kind <select id="kind"><option value="all">All kinds</option><option value="story">Story</option><option value="missable">Missable</option><option value="collectibles">Collectibles</option><option value="activities">Activities</option><option value="online">Online</option></select></label>
+  <label class="toggle"><input id="spoiler" type="checkbox"> Spoiler mode — hide story trophy names &amp; descriptions until earned</label>
+  <label class="toggle"><input id="earned-only" type="checkbox"> Show earned only</label>
+  <div class="io">
+    <button id="export" type="button">Export progress (.json)</button>
+    <label class="import">Import progress <input id="import" type="file" accept="application/json,.json"></label>
+    <button id="reset" type="button">Reset progress</button>
+  </div>
+  <p class="filter-note" id="filter-note"></p>
+</section>
+
+<section aria-label="Trophy checklist">
+  <h2 class="list-heading">The 55 trophies</h2>
+  <p class="list-hint">Tick a trophy when you earn it — your progress is saved in this browser (localStorage) and never leaves your machine. Every guide names its sources; open a trophy to read its guide.</p>
+  <div id="list" class="trophy-list"></div>
+  <p id="empty" class="empty" hidden>No trophies match these filters. Try clearing the search or choosing another kind — and note that GTA 6 has no online trophies, so the Online filter is empty by design.</p>
+</section>
+</main>
+
+<footer>
+  <p>Leonida Legends — an unofficial, fan-made guide. Grand Theft Auto and Rockstar Games are trademarks of their owners; this guide uses no Rockstar logo, artwork or game images. Trophy names and descriptions are shown as PlayStation publishes them; every guide is written in our own words and cites its sources. The app works fully offline: it loads only its own files and makes no network requests at run time.</p>
+  <p>Sources consulted: <a href="https://www.pushsquare.com/guides/gta-6-trophy-guide-and-roadmap">Push Square — GTA 6 Trophy Guide and Roadmap</a> &middot; <a href="https://sixshore.com/gta-6/guides/trophies-and-achievements/">Sixshore — GTA 6 Trophies and Achievements</a> &middot; <a href="https://www.planetgta6.com/en/gta-6-trophies/">PlanetGTA6 — GTA 6 Trophies</a> &middot; <a href="https://gtadb.net/articles/gta-6-trophies-platinum-guide/?show_secrets=1">GTADb — GTA 6 Trophies Platinum Guide</a> &middot; <a href="https://www.gtavicecityhub.com/achievements">GTA Vice City Hub — Achievements</a></p>
+</footer>
 <script type="module" src="app.js"></script>
 </body>
 </html>
